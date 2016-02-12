@@ -1,0 +1,41 @@
+<!DOCTYPE validators PUBLIC
+    "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+    "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+
+<validators>
+  <field name="name">
+    <field-validator type="requiredstring">
+      <message key="requiredstring"/>
+    </field-validator>
+
+    <field-validator type="stringlength">
+      <param name="minLength">3</param>
+      <param name="maxLength">10</param>
+      <param name="trim">true</param>
+      <message><![CDATA[
+        %{getText(fieldName)} must be between %{minLength}
+        and %{maxLength} characters; '%{[1][fieldName]}' is
+        %{[1][fieldName].trim().length()} characters.
+        ]]>
+      </message>
+    </field-validator>
+  </field>
+
+  <field name="showMinOrMax">
+    <field-validator type="requiredstring">
+      <message key="requiredstring"/>
+    </field-validator>
+
+    <field-validator type="stringlength">
+      <param name="minLength">3</param>
+      <param name="maxLength">10</param>
+      <param name="trim">true</param>
+      <message><![CDATA[
+        %{showMinOrMax.trim().length() < minLength ?
+        getText('stringMinLength') :
+        getText('stringMaxLength')}
+      ]]>
+      </message>
+    </field-validator>
+  </field>
+</validators>

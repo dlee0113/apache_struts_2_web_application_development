@@ -1,0 +1,54 @@
+body {
+  font-family: sans-serif;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  padding-bottom: 0.5em;
+}
+
+.code {
+  font-family: monospace;
+  color: darkblue;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+th {
+  background-color: #cccccc;
+  padding: 0.25em;
+}
+
+td {
+  padding: 0.25em;
+}
+
+input, textarea, select {
+  border: 1px solid slategray;
+}
+
+/* Override S2 styles */
+
+.wwFormTable {
+  border: 1px solid #669;
+  padding: 1em;
+}
+
+.wwFormTable input,.wwFormTable textarea {
+  border: 1px solid #bbb;
+  background: #fef;
+  font-family: verdana, arial, sans-serif;
+  padding: 2px;
+  font-size: 0.9em;
+}
+
+.wwFormTable input.inputError,.wwFormTable textarea.inputError {
+  border: 1px dotted #f66;
+  background: #fee;
+}

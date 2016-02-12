@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+          "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+  <constant name="struts.devMode" value="true"/>
+  <constant name="struts.enable.DynamicMethodInvocation" value="false"/>
+
+  <package name="default" namespace="/" extends="struts-default">
+    <result-types>
+      <result-type name="markdown" class="com.packt.s2wad.ch04.examples.MarkdownResult"/>
+    </result-types>
+
+    <action name="sanity" class="com.packt.s2wad.ch04.sanity.SanityAction">
+      <result>sanity.jsp</result>
+    </action>
+
+    <action name="test_xslt" class="com.packt.s2wad.ch04.examples.XsltExample">
+      <result type="xslt">
+        <param name="location">/WEB-INF/content/examples/xslt-example.xslt</param>
+      </result>
+    </action>
+
+    <action name="viewmd" class="com.packt.s2wad.ch04.examples.MarkdownAction">
+      <result type="markdown">/WEB-INF/mdrecipes/${mdid}.md</result>
+    </action>
+  </package>
+
+  <!-- ************************************************************ -->
+  <!-- * Result configuration annotations                            * -->
+  <!-- ************************************************************ -->
+
+  <package name="xml-config" namespace="/xml-config" extends="struts-default">
+
+    <!-- Dispatcher result; long form. -->
+    <action name="dispatcher-long">
+      <result name="success" type="dispatcher">
+        <param name="location">/WEB-INF/content/success.jsp</param>
+      </result>
+    </action>
+
+    <!-- Redirect result; to an action. -->
+    <action name="redirect-result-example">
+      <result type="redirect">/sanity.action</result>
+    </action>
+
+    <!-- RedirectAction; back to sanity check. -->
+    <action name="redirect-action-result-example">
+      <result type="redirectAction">
+        <param name="namespace">/</param>
+        <param name="actionName">sanity</param>
+      </result>
+    </action>
+  </package>
+</struts>

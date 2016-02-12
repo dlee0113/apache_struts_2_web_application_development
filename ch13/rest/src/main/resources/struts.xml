@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+    "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+  <constant name="struts.devMode" value="true" />
+  <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+
+  <bean name="yaml" type="org.apache.struts2.rest.handler.ContentTypeHandler" class="com.packt.s2wad.ch13.yaml.YamlHandler"/>
+  <constant name="struts.rest.handlerOverride.yaml" value="yaml"/>
+  <constant name="struts.action.extension" value="xhtml,,xml,json,yaml"/>
+</struts>

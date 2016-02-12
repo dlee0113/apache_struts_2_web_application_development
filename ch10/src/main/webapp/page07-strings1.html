@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <title>Strings</title>
+    <link rel="stylesheet" href="css/main.css" type="text/css"/>
+    <link rel="stylesheet" href="css/js.css" type="text/css"/>
+    <script type="text/javascript" src="js/util.js"></script>
+  </head>
+
+  <body>
+    <h1>Strings</h1>
+
+    <table>
+      <tr>
+        <th>["hi", "there", "y'all"].join(" ")</th>
+        <td><script>w(["hi", "there", "y'all"].join(" "))</script></td>
+      </tr>
+      
+      <tr>
+        <th>"foobarbaz".length</th>
+        <td><script>w("foobarbaz".length)</script></td>
+      </tr>
+
+      <tr>
+        <th>"hello there".indexOf("the")</th>
+        <td><script>w("hello there".indexOf("the"))</script></td>
+      </tr>
+      
+      <tr>
+        <th>"hello there".replace(/l/g, "w")</th>
+        <td><script>w("hello there".replace(/l/g, "w"))</script></td>
+      </tr>
+      
+      <tr>
+        <th>"hello &lt;pre>there&lt;/pre> y'all".replace(/&lt;pre.*>/i, "").replace(/&lt;\/pre.*>/, "")</th>
+        <td><script>w("hello <pre>there</pre> y'all".replace(/<pre>/i, "").replace(/<\/pre.*>/, ""))</script></td>
+      </tr>
+    </table>
+  </body>
+</html>

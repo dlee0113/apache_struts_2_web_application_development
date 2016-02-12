@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <title>Numbers #1</title>
+    <link rel="stylesheet" href="css/main.css" type="text/css"/>
+    <link rel="stylesheet" href="css/js.css" type="text/css"/>
+    <script type="text/javascript" src="js/util.js"></script>
+  </head>
+
+  <body>
+    <h1>Numbers #1</h1>
+
+    <table>
+      <tr>
+        <th>Regular format</th>
+        <td><script>w(3.14159)</script></td>
+      </tr>
+
+      <tr>
+        <th>Scientific format</th>
+        <td><script>w(6.02e23)</script></td>
+      </tr>
+
+      <tr>
+        <th>n / 0</th>
+        <td><script>w(5/0)</script></td>
+      </tr>
+
+      <tr>
+        <th>n / 0 == inifinty?</th>
+        <td><script>w(5/0 == Infinity)</script></td>
+      </tr>
+
+      <tr>
+        <th>isFinite(n / 0)</th>
+        <td><script>w(isFinite(5/0))</script></td>
+      </tr>
+
+      <tr>
+        <th>Math.sqrt(36)</th>
+        <td><script>w(Math.sqrt(36))</script></td>
+      </tr>
+
+      <tr>
+        <th>Math.sqrt(-1)</th>
+        <td><script>w(Math.sqrt(-1))</script></td>
+      </tr>
+    </table>
+  </body>
+</html>

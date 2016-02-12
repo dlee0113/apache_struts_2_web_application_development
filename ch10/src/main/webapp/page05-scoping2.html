@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>Using var keyword fixes unintentional global modification</title>
+  </head>
+
+  <body>
+    <h1>Using var keyword fixes unintentional global modification</h1>
+
+    <script type="text/javascript">
+      /**
+       * These are global variables defined with the _var_ keyword.
+       */
+      var i = 1;
+      var aName = "Dave";
+      var names = [ "Dave", "Nick", "Omar" ];
+
+      document.writeln("Before loop: i = " + i + "<br/>");
+      document.writeln("Before loop: aName = '" + aName + "'<br/><br/>");
+
+      /**
+       * This loop *still* modified the global variables, because
+       * in JavaScript we cannot create arbitrary scopes as we can
+       * in Java. *Only* functions have their own scope.
+       */
+      for (var i = 0; i < names.length; i++) {
+          var aName = names[i];
+          document.writeln("In loop: current aName = '" + aName + "'<br/>");
+      }
+
+      /**
+       * We've modified the global values.
+       */
+      document.writeln("<br/>");
+      document.writeln("Outside loop: i = " + i + "<br/>");
+      document.writeln("Outside loop: aName = '" + aName + "'<br/>");
+    </script>
+  </body>
+</html>

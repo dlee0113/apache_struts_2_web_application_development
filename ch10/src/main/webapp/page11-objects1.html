@@ -1,0 +1,89 @@
+<html>
+  <head>
+    <title>Anonymous Objects</title>
+    <link rel="stylesheet" href="css/main.css" type="text/css"/>
+    <link rel="stylesheet" href="css/js.css" type="text/css"/>
+    <script type="text/javascript" src="js/util.js"></script>
+  </head>
+
+  <body>
+    <h1>Anonymous Objects</h1>
+
+    <pre class="code">
+      var aDude = {
+          fname: "Dave",
+          lname: "Newton",
+          age: Infinity // Notice no trailing comma!
+      };
+    </pre>
+    
+    <script type="text/javascript">
+      var aDude = {
+          fname: "Dave",
+          lname: "Newton",
+          age: Infinity // Notice no trailing comma!
+      };
+
+      wln(code("aDude.fname") + ": " + aDude.fname);
+      wln(code("aDude['lname']") + ": " + aDude['lname']);
+    </script>
+
+    <pre class="code">
+      var aDude = {
+          fname: "Dave",
+          lname: "Newton",
+          age: Infinity,
+          address: {
+              street: "271828 E St",
+              state: "Confused",
+              zip: "69042"
+          }
+      };
+    </pre>
+
+    <script type="text/javascript">
+      var aDude = {
+          fname: "Dave",
+          lname: "Newton",
+          age: Infinity,
+          address: {
+              street: "271828 E St",
+              state: "Confused",
+              zip: "69042"
+          }
+      };
+
+      wln(code("aDude.address.state") + ": " + aDude.address.state);
+    </script>
+
+    <h2>Objects are open</h2>
+    <p>We can also add properties to existing objects, like to <span class="code">aDude</span>:</p>
+
+    <pre class="code">
+      aDude.baz = "Plugh";
+    </pre>
+
+    <script type="text/javascript">
+      aDude.baz = "Plugh";
+
+      wln(code("aDude.baz") + ": " + aDude.baz);
+    </script>
+
+    <h2>Object properties can be functions</h2>
+    <p>Lastly, object values can be functions.</p>
+
+    <pre class="code">
+      aDude.toString = function () {
+          return "aDude [fname=" + this.fname + ", lname=" + this.lname + "]";
+      }
+    </pre>
+
+    <script type="text/javascript">
+      aDude.toString = function () {
+          return "aDude [fname=" + this.fname + ", lname=" + this.lname + "]";
+      }
+
+      wln(code("document.write(aDude)") + ": " + aDude);
+    </script>
+  </body>
+</html>

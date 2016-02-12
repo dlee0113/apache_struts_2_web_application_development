@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <title>Functions have scope</title>
+  </head>
+
+  <body>
+    <h1>Functions have scope</h1>
+
+    <script type="text/javascript">
+      /**
+       * These are global variables defined with the _var_ keyword.
+       */
+      var i = 1;
+      var aName = "Dave";
+      var names = [ "Dave", "Nick", "Omar" ];
+
+      document.writeln("Before function with loop: i = " + i + "<br/>");
+      document.writeln("Before function with loop: aName = '" + aName + "'<br/><br/>");
+
+      /**
+       * Now the loop is inside a function. Functions create scope, so using
+       * the _var_ keyword inside the function *does* create new variables.
+       *
+       * The global variables are *not* modified now.
+       */
+      function foo() {
+          for (var i = 0; i < names.length; i++) {
+              var aName = names[i];
+              document.writeln("In loop: current aName = '" + aName + "'<br/>");
+          }
+      }
+
+      /**
+       * The globals aren't modified by running the function.
+       */
+      foo();
+      
+      document.writeln("<br/>");
+      document.writeln("After function : i = " + i + "<br/>");
+      document.writeln("After function : aName = '" + aName + "'<br/>");
+    </script>
+  </body>
+</html>

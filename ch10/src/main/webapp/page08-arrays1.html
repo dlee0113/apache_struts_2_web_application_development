@@ -1,0 +1,83 @@
+<html>
+  <head>
+    <title>Arrays</title>
+    <link rel="stylesheet" href="css/main.css" type="text/css"/>
+    <link rel="stylesheet" href="css/js.css" type="text/css"/>
+    <script type="text/javascript" src="js/util.js"></script>
+  </head>
+
+  <body>
+    <h1>Arrays</h1>
+
+    <table>
+      <tr>
+        <th>[1, 2, 3].length</th>
+        <td><script>w([1, 2, 3].length)</script></td>
+      </tr>
+
+      <tr>
+        <th>
+          var a = [1, 2, 3];
+          <br/>
+          a[a.length] = 4;
+          <br/>
+          a = ???
+        </th>
+        <td>
+          <script>
+            var a = [1, 2, 3];
+            a[a.length] = 4;
+            w("[" + a + "]");
+          </script>
+        </td>
+      </tr>
+
+      <tr>
+        <th>
+          var a = [1, 2, 3]
+          <br/>
+          a.push(42);
+          <br/>
+          a = ???
+        </th>
+        <td>
+          <script>
+            var a = [1, 2, 3]
+            a.push(42);
+            w("[" + a + "]");
+          </script>
+        </td>
+      </tr>
+
+      <tr>
+        <th>
+          var a = [3, 8, 1, 11, 19, 2, 5];
+          <br/>
+          a.sort() = ???
+        </th>
+        <td>
+          <script>
+            var a = [3, 8, 1, 11, 19, 2, 5];
+            w("[" + a.sort() + "]");
+          </script>
+        </td>
+      </tr>
+
+      <tr><th>That's not sorted right...</th><td>&nbsp;</td></tr>
+
+      <tr>
+        <th>
+          var a = [3, 8, 1, 11, 19, 2, 5];
+          <br/>
+          a.sort(function(a, b) { return a - b; }) = ???
+        </th>
+        <td>
+          <script>
+            var a = [3, 8, 1, 11, 19, 2, 5];
+            w("[" + a.sort(function(a, b) { return a - b; }) + "]");
+          </script>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

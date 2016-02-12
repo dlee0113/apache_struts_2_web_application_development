@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"       
+          "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+  <constant name="struts.devMode" value="true"/>
+  <constant name="struts.enable.DynamicMethodInvocation" value="false"/>
+  
+  <package name="default" namespace="/" extends="struts-default">
+    <action name="sanity" class="com.packt.s2wad.ch06.sanity.SanityAction">
+      <result>sanity.jsp</result>
+      <result name="input">sanity.jsp</result>
+    </action>
+
+    <action name="getparam" class="com.packt.s2wad.ch06.sanity.GetParamAction">
+      <result>getparam.jsp</result>
+    </action>
+  </package>
+</struts>

@@ -1,0 +1,59 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+    "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+  <package name="interceptor-examples" namespace="/xml/interceptors" extends="struts-default">
+    <interceptors>
+      <interceptor name="trim" class="com.packt.s2wad.ch08.interceptors.TrimInterceptor" />
+      <interceptor name="resultMapper" class="com.packt.s2wad.ch08.interceptors.ResultMappingInterceptor" />
+
+      <!-- A short stack to keep things very clear. -->
+      <interceptor-stack name="testTrim">
+        <interceptor-ref name="exception" />
+        <interceptor-ref name="trim" />
+        <interceptor-ref name="params">
+          <param name="excludeParams">dojo\..*,^struts\..*</param>
+        </interceptor-ref>
+        <interceptor-ref name="conversionError" />
+        <interceptor-ref name="validation">
+          <param name="excludeMethods">input,back,cancel,browse</param>
+        </interceptor-ref>
+        <interceptor-ref name="workflow">
+          <param name="excludeMethods">input,back,cancel,browse</param>
+        </interceptor-ref>
+      </interceptor-stack>
+    </interceptors>
+
+    <default-interceptor-ref name="testTrim" />
+
+    <action name="trim" class="com.packt.s2wad.ch08.interceptors.XmlTrimAction">
+      <result type="redirectAction">trim!input</result>
+      <result name="input">/WEB-INF/content/interceptors/trim-input-xml.jsp</result>
+    </action>
+
+    <action name="trim2" class="com.packt.s2wad.ch08.interceptors.XmlTrimAction">
+      <interceptor-ref name="testTrim">
+        <param name="trim.excludedParams">excludedVal</param>
+      </interceptor-ref>
+      <result type="redirectAction">trim2!input</result>
+      <result name="input">/WEB-INF/content/interceptors/trim-input-xml.jsp</result>
+    </action>
+
+    <!--
+        This example is configured via XML only, as we're simulating an action
+        whose result names we cannot re-define.
+    -->
+    <action name="mapping" class="com.packt.s2wad.ch08.interceptors.CrazyResultNames">
+      <interceptor-ref name="defaultStack" />
+      <interceptor-ref name="resultMapper">
+        <param name="map">
+          #{"strangeSuccess" : "success", "irritatingInput" : "input"}
+        </param>
+      </interceptor-ref>
+      <result name="input">/WEB-INF/content/interceptors/crazy-input.jsp</result>
+      <result name="success">/WEB-INF/content/interceptors/crazy-success.jsp</result>
+      <result name="notmapped">/WEB-INF/content/interceptors/crazy-notmapped.jsp</result>
+    </action>
+  </package>
+</struts>

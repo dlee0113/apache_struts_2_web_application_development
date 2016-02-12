@@ -1,0 +1,18 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+  "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+  <field name="foo2">
+    <field-validator type="requiredstring">
+      <message>
+        %{getText(fieldName)} is required.
+      </message>
+    </field-validator>
+    
+    <field-validator type="stringlength">
+      <param name="minLength">4</param>
+      <message>
+        %{getText(fieldName)} must be at least %{minLength} characters long.
+      </message>
+    </field-validator>
+  </field>
+</validators>

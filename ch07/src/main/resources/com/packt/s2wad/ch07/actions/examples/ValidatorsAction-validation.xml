@@ -1,0 +1,120 @@
+<!DOCTYPE validators PUBLIC
+    "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+    "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+
+<validators>
+  <field name="reqint">
+    <field-validator type="required">
+      <message>int primitive will never be null...</message>
+    </field-validator>
+
+    <field-validator type="int">
+      <param name="min">10</param>
+      <param name="max">20</param>
+      <message>'int' must be between %{min} and %{max} (inclusive).</message>
+    </field-validator>
+  </field>
+
+  <field name="reqInteger">
+    <field-validator type="required">
+      <message>Integer object is required.</message>
+    </field-validator>
+
+    <field-validator type="int">
+      <param name="min">10</param>
+      <param name="max">20</param>
+      <message>'Integer' must be between %{min} and %{max} (inclusive).</message>
+    </field-validator>
+  </field>
+
+  <field name="reqd">
+    <field-validator type="required">
+      <message>double primitive will never be null.</message>
+    </field-validator>
+
+    <field-validator type="double">
+      <param name="minInclusive">10</param>
+      <param name="maxInclusive">20</param>
+      <message>'double' must be between %{minInclusive} and %{maxInclusive} (inclusive).</message>
+    </field-validator>
+  </field>
+
+  <field name="reqDouble">
+    <field-validator type="required">
+      <message>Double object may be null.</message>
+    </field-validator>
+
+    <field-validator type="double">
+      <param name="minInclusive">10</param>
+      <param name="maxInclusive">20</param>
+      <message>'Double' must be between %{minInclusive} and %{maxInclusive} (inclusive).</message>
+    </field-validator>
+  </field>
+
+  <field name="email">
+    <field-validator type="requiredstring">
+      <message>Email is required.</message>
+    </field-validator>
+
+    <field-validator type="email">
+      <message>Invalid email</message>
+    </field-validator>
+
+    <field-validator type="fieldexpression">
+      <param name="expression">!email.startsWith('dave')</param>
+      <message>No daves!</message>
+    </field-validator>
+
+    <field-validator type="fieldexpression">
+      <param name="expression">!emailService.excluded(email)</param>
+      <message>Email excluded by service fieldexpression</message>
+    </field-validator>
+  </field>
+
+  <field name="cemail">
+    <field-validator type="requiredstring">
+      <message>Confirmation email is required.</message>
+    </field-validator>
+
+    <field-validator type="email">
+      <message>Invalid confirmation email</message>
+    </field-validator>
+  </field>
+
+  <validator type="expression">
+    <param name="expression">email.equals(cemail)</param>
+    <message>Email addresses don't match.</message>
+  </validator>
+
+  <field name="url">
+    <field-validator type="requiredstring">
+      <message>URL is required.</message>
+    </field-validator>
+
+    <field-validator type="url">
+      <message>Invalid URL</message>
+    </field-validator>
+  </field>
+
+  <field name="date">
+    <field-validator type="required">
+      <message>Date is required.</message>
+    </field-validator>
+
+    <field-validator type="date">
+      <message>Invalid date.</message>
+    </field-validator>
+  </field>
+
+  <field name="arbitraryRegex">
+    <field-validator type="requiredstring">
+      <message >Arbitrary regex is required.</message>
+    </field-validator>
+
+    <field-validator type="regex">
+      <param name="expression">foo.*bar</param>
+      <message>Regex doesn't match!</message>
+    </field-validator>
+  </field>
+
+</validators>

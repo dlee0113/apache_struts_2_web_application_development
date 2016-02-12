@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <title>Closures!</title>
+    <link rel="stylesheet" href="css/main.css" type="text/css"/>
+    <link rel="stylesheet" href="css/js.css" type="text/css"/>
+    <script type="text/javascript" src="js/util.js"></script>
+  </head>
+
+  <body>
+    <h1>Closures!</h1>
+
+    <pre class="code">
+        function makeAdder(x) {
+            return function(n) {
+                return n + x;
+            }
+        }
+
+        var add10 = makeAdder(10);
+
+        document.writeln(add10(1));  //  1 + 10 = 11
+        document.writeln(add10(32)); // 32 + 10 = 42
+
+        var add30 = makeAdder(30);
+
+        document.writeln(add10(32)); // 32 + 10 = 42
+        document.writeln(add30(12)); // 12 + 30 = 42
+    </pre>
+
+    <script type="text/javascript">
+        function makeAdder(x) {
+            return function(n) {
+                return n + x;
+            }
+        }
+
+        var add10 = makeAdder(10);
+
+        wln(code("add10(1) = " + add10(1)));
+        wln(code("add10(32) = " + add10(32)));
+
+        var add30 = makeAdder(30);
+
+        wln(code("add10(32) = " + add10(32)));
+        wln(code("add30(12) = " + add30(12)));
+    </script>
+  </body>
+</html>

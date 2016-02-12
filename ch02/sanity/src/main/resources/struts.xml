@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+    "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+  <constant name="struts.devMode" value="true" />
+  <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+
+  <package name="default" namespace="/" extends="struts-default">
+    <action name="verysimple" class="com.packt.s2wad.ch02.sanity.VerySimpleAction">
+      <result>/WEB-INF/jsps/verysimple.jsp</result>
+    </action>
+
+    <action name="verysimple2" class="com.packt.s2wad.ch02.sanity.VerySimpleAction">
+      <result name="success" type="dispatcher">/WEB-INF/jsps/verysimple.jsp</result>
+    </action>
+
+    <action name="verysimple3">
+      <result>/WEB-INF/jsps/verysimple.jsp</result>
+    </action>
+
+    <action name="method1" method="method1"
+            class="com.packt.s2wad.ch02.sanity.MethodSelectionAction">
+      <result>/WEB-INF/jsps/method1.jsp</result>
+    </action>
+
+    <action name="method2" method="method2"
+            class="com.packt.s2wad.ch02.sanity.MethodSelectionAction">
+      <result>/WEB-INF/jsps/method2.jsp</result>
+    </action>
+
+    <action name="sanity" class="com.packt.s2wad.ch02.sanity.SanityAction">
+      <result>sanity.jsp</result>
+    </action>
+  </package>
+</struts>
